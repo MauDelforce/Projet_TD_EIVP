@@ -42,7 +42,7 @@ def max(liste):
 	return a
 
 
-def moyennet(liste):
+def moyenne(liste):
 	if len(liste)== 0 or len(liste)==1:
 		return 0
 	a = 0
