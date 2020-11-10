@@ -50,3 +50,34 @@ def moyenne(liste):
 		a+=liste(i)
 	return a/len(liste)
 
+
+def variance(liste):
+	if len(liste)== 0 or len(liste)==1:
+		return 0
+	for i in range(1,len(liste)):
+		a+= (liste[i]-moyenne(liste))**2
+	return a/len(liste)
+
+def ecartType(liste):
+	return sqrt(variance(liste))
+
+
+def quicksort(L):
+    if L==[]:
+        return L
+    else :
+        To=L[0]
+        Tinf=[]
+        Tsup=[]
+        for x in L[1:]:
+            if x<=To:
+                Tinf.append(x)
+            else:
+                Tsup.append(x)
+        return quicksort(Tinf)+[To]+quicksort(Tsup)
+
+def medianne(liste):
+	L = quicksort(liste)
+	return L[len(liste)/2]
+
+def humidex(temperature,humitité):
