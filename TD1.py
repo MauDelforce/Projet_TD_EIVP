@@ -92,11 +92,35 @@ def humidex(temperature,humidity):
 	humidex = temperature + (5/9)*(6.112*(10*(7.5*(temperature/(237.7+temperature))))*(humidity/100)-10)
 	return humidex
 
-def corrélation():
+
 
 ## Recherche des anomalies
 
 #anomalies = valeur manquantes, seuil de normalité, étude stat autour de la moyenne
 
+def manquantes(liste):
+	pos=[]
+	for i in range(0,len(liste)):
+		if liste[i]==[]:
+			pos.append(i)
+		elif liste[i][0]==0 and liste[i+1][0]==0:
+			pos.append(i)
+			pos.append(i+1)
+	return pos
+
+def anomalieStat(liste):
+	pos = []
+	m = moyenne(liste)
+	e = ecartType(liste)
+	for i in range(len(liste)):
+		if liste[i][0] > m + 2*e:
+			pos.append(i)
+	return pos
 
 
+def anomalies(liste):
+	pos = manquantes(liste) + anomalieStat(liste)
+	if pos == []:
+		return "pas d'anomalies détectées"
+	else :
+		return 'anomalies détectées', pos
