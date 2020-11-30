@@ -56,8 +56,10 @@ def max(liste):
 
 
 def moyenne(liste):
-    if len(liste) == 0 or len(liste) == 1:
+    if len(liste) == 0:
         return 0
+    if len(liste) == 1:
+        return liste[0]
     a = 0
     for i in range(1, len(liste)):
         a = a + liste[i][0]
@@ -78,7 +80,7 @@ def ecartType(liste):
 
 
 def quicksort(liste):
-
+#tri de la liste nécessaire pour la fonction médiane
     if L == []:
         return L
     else:
@@ -95,7 +97,7 @@ def quicksort(liste):
 
 def medianne(liste):
     L = quicksort(liste)
-    return L[len(liste) / 2]
+    return L[len(liste) // 2]
 
 
 def humidex(temperature, humidity):
