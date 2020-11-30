@@ -96,7 +96,7 @@ def humidex(temperature,humidity):
 
 ## Recherche des anomalies
 
-#anomalies = valeur manquantes, seuil de normalité, étude stat autour de la moyenne
+#anomalies = valeurs manquantes, seuil de normalité, étude stat autour de la moyenne
 
 def manquantes(liste):
 	pos=[]
